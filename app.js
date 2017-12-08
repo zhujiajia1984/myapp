@@ -1,9 +1,10 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var log4js = require('log4js');
+var logger = require('./logs/log4js').logger;
 
 
 // 自定义页面
@@ -31,6 +32,9 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+// http日志服务
+app.use(log4js.connectLogger(logger, { level: 'auto' }));
 
 //
 app.use(bodyParser.text({ type: 'text/xml' })); // 将请求体中的xml解析为字符串
