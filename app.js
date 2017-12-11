@@ -22,6 +22,7 @@ var htmlParse = require('./routes/htmlParse');
 var plantRecognize = require('./routes/plantRecognize');
 var h5 = require('./routes/h5');
 var location = require('./routes/location');
+var datav = require('./routes/datav');
 
 //
 var app = express();
@@ -60,6 +61,7 @@ app.use('/htmlParse', htmlParse);
 app.use('/plantRecognize', plantRecognize);
 app.use('/h5', h5);
 app.use('/location', location);
+app.use('/datav', datav);
 
 
 // catch 404 and forward to error handler
