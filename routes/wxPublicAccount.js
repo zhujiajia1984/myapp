@@ -13,6 +13,7 @@ var redisClient = require('../redis');
 var querystring = require('querystring');
 var iconv = require('iconv-lite');
 var logger = require('../logs/log4js').logger;
+var cors = require('cors');
 
 const appid = 'wxaed97ec85f7517ba';
 const screct = 'fecd688110e195c4ea0e9f3d97797d44';
@@ -21,7 +22,7 @@ const key = 'accessToken';
 const openid = 'oMBhJ0tdCdBtY07FXuzsywkEyU6A';
 
 /* 每隔2小时(提前半小时，即5400秒)就去获取微信公众号的access_token，并存储到redis中 */
-router.get('/getAccessToken', function(req, res, next) {
+router.get('/getAccessToken', cors(), function(req, res, next) {
     redisClient.get('token', function(error, resData) {
         var data = null;
         if (resData) {

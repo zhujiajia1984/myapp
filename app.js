@@ -9,6 +9,7 @@ var logger = require('./logs/log4js').logger;
 
 // 自定义页面
 var index = require('./routes/index');
+var yunac = require('./routes/yunac');
 var token = require('./routes/token');
 var login = require('./routes/login');
 var position = require('./routes/position');
@@ -40,14 +41,14 @@ app.use(log4js.connectLogger(logger, { level: 'auto' }));
 //
 app.use(bodyParser.text({ type: 'text/xml' })); // 将请求体中的xml解析为字符串
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));	//  解析form格式
+app.use(bodyParser.urlencoded({ extended: true })); //  解析form格式
 app.use(cookieParser());
 
 //
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 页面跳转
-app.use('/', index);
+app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc'], yunac);
 app.use('/token', token);
 app.use('/login', login);
 app.use('/position', position);
@@ -66,20 +67,20 @@ app.use('/datav', datav);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+	var err = new Error('Not Found');
+	err.status = 404;
+	next(err);
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+	// set locals, only providing error in development
+	res.locals.message = err.message;
+	res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+	// render the error page
+	res.status(err.status || 500);
+	res.render('error');
 });
 
 module.exports = app;
