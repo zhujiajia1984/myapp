@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var log4js = require('log4js');
 var logger = require('./logs/log4js').logger;
+var cors = require('cors');
 
 
 // 自定义页面
@@ -28,6 +29,9 @@ var datav = require('./routes/datav');
 //
 var app = express();
 
+// 跨域
+app.use(cors());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -48,7 +52,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 页面跳转
-app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc'], yunac);
+app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc', '/getwxinfo'], yunac);
 app.use('/token', token);
 app.use('/login', login);
 app.use('/position', position);

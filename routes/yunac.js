@@ -3,7 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var logger = require('../logs/log4js').logger;
-var cors = require('cors');
+
 
 /* GET yunac page. */
 router.get('/', function(req, res, next) {
@@ -27,10 +27,15 @@ router.get('/apUser', function(req, res, next) {
 	res.render('index');
 });
 
-router.post('/testYunAc/login', cors(), function(req, res, next) {
-	var token = req.body.token;
-	logger.info(token);
-	res.json({ token: "success123" });
+router.get('/getwxinfo', function(req, res, next) {
+	res.redirect('/index');
+});
+
+router.post('/testYunAc/login', function(req, res, next) {
+	logger.info(req.body.token);
+	logger.info(req.body.userName);
+	logger.info(req.body.password);
+	res.json({ code: 100, token: "success123" });
 });
 
 

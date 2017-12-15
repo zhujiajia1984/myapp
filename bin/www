@@ -11,8 +11,8 @@ var path = require('path');
 
 // https服务器参数设置
 var options = {
-    key: fs.readFileSync(path.resolve("./ssl/214047710730603.key")),
-    cert: fs.readFileSync(path.resolve("./ssl/214047710730603.pem"))
+	key: fs.readFileSync(path.resolve("./ssl/214047710730603.key")),
+	cert: fs.readFileSync(path.resolve("./ssl/214047710730603.pem"))
 };
 
 // Create HTTP server.
