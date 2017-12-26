@@ -28,8 +28,52 @@ router.get('/apUser', function(req, res, next) {
 });
 
 router.get('/getwxinfo', function(req, res, next) {
-	res.redirect('/index');
+	res.render('index');
 });
+
+router.get('/pwdReset', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/peizhi', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/apType', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/tzManage', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/tzType', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/apUser', function(req, res, next) {
+	res.redirect('index');
+});
+
+router.get('/version', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/versionType', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/profile', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/editPwd', function(req, res, next) {
+	res.render('index');
+});
+
+// router.get('/*', function(req, res, next) {
+// 	res.redirect('index');
+// });
 
 router.post('/testYunAc/login', function(req, res, next) {
 	logger.info(req.body.token);

@@ -52,7 +52,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 页面跳转
-app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc', '/getwxinfo'], yunac);
+app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc', '/getwxinfo',
+	'/pwdReset', '/peizhi', '/apType', '/tzManage', '/tzType', '/apUser',
+	'/version', '/versionType', '/profile', '/editPwd'
+], yunac);
 app.use('/token', token);
 app.use('/login', login);
 app.use('/position', position);
