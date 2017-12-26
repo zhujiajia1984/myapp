@@ -54,7 +54,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 页面跳转
 app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc', '/getwxinfo',
 	'/pwdReset', '/peizhi', '/apType', '/tzManage', '/tzType', '/apUser',
-	'/version', '/versionType', '/profile', '/editPwd'
+	'/version', '/versionType', '/profile', '/editPwd', '/logSystem',
+	'/logOperation', '/subClient', '/subRole', '/subAccount', '/account'
 ], yunac);
 app.use('/token', token);
 app.use('/login', login);

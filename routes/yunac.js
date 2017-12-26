@@ -63,6 +63,30 @@ router.get('/versionType', function(req, res, next) {
 	res.render('index');
 });
 
+router.get('/logSystem', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/logOperation', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/subClient', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/subRole', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/subAccount', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/account', function(req, res, next) {
+	res.render('index');
+});
+
 router.get('/profile', function(req, res, next) {
 	res.render('index');
 });
