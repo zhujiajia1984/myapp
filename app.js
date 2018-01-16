@@ -55,7 +55,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc', '/getwxinfo',
 	'/pwdReset', '/peizhi', '/apType', '/tzManage', '/tzType', '/apUser',
 	'/version', '/versionType', '/profile', '/editPwd', '/logSystem',
-	'/logOperation', '/subClient', '/subRole', '/subAccount', '/account'
+	'/logOperation', '/subClient', '/subRole', '/subAccount', '/account',
+	'/hometongji', '/msgCenter', '/apMonitor', './editWxLogin', '/apConfig',
+	'/ssidEdit'
 ], yunac);
 app.use('/token', token);
 app.use('/login', login);

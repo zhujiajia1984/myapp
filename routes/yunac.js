@@ -87,11 +87,35 @@ router.get('/account', function(req, res, next) {
 	res.render('index');
 });
 
+router.get('/hometongji', function(req, res, next) {
+	res.render('index');
+});
+
 router.get('/profile', function(req, res, next) {
 	res.render('index');
 });
 
 router.get('/editPwd', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/msgCenter', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/apMonitor', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/editWxLogin', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/apConfig', function(req, res, next) {
+	res.render('index');
+});
+
+router.get('/ssidEdit', function(req, res, next) {
 	res.render('index');
 });
 
