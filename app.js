@@ -58,7 +58,7 @@ app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc', '/
 	'/version', '/versionType', '/profile', '/editPwd', '/logSystem',
 	'/logOperation', '/subClient', '/subRole', '/subAccount', '/account',
 	'/hometongji', '/msgCenter', '/apMonitor', './editWxLogin', '/apConfig',
-	'/ssidEdit'
+	'/ssidEdit', '/devmap'
 ], yunac);
 app.use('/token', token);
 app.use('/login', login);

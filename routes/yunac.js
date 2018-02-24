@@ -119,6 +119,10 @@ router.get('/ssidEdit', function(req, res, next) {
 	res.render('index');
 });
 
+router.get('/devmap', function(req, res, next) {
+	res.render('index');
+});
+
 // router.get('/*', function(req, res, next) {
 // 	res.redirect('index');
 // });
