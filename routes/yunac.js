@@ -125,7 +125,7 @@ router.get('/devmap', function(req, res, next) {
 
 // router.get('/*', function(req, res, next) {
 // 	res.redirect('index');
-// });/
+// });
 
 router.post('/testYunAc/login', function(req, res, next) {
 	logger.info(req.body.token);
