@@ -23,18 +23,35 @@ const openid = 'oMBhJ0tdCdBtY07FXuzsywkEyU6A';
 
 /* 每隔2小时(提前半小时，即5400秒)就去获取微信公众号的access_token，并存储到redis中 */
 router.get('/getAccessToken', cors(), function(req, res, next) {
+    var access_token;
+    var jsapi_ticket;
     redisClient.get('token', function(error, resData) {
         var data = null;
         if (resData) {
-            data = JSON.parse(resData);
-            // logger.info(data);
-            res.send(data);
+            access_token = JSON.parse(resData);
+            // logger.info(access_token);
+            // res.send(data);
             return;
         } else {
             res.send('access_token_error');
             return;
         }
     });
+    redisClient.get('jsapi_ticket', function(error, resData) {
+        var data = null;
+        if (resData) {
+            jsapi_ticket = JSON.parse(resData);
+            // logger.info(access_token);
+            // res.send(data);
+            var result = "access_token：" + access_token + '<br/>' + "jsapi_ticket：" + jsapi_ticket;
+            res.send(result);
+            return;
+        } else {
+            res.send('jsapi_ticket_error');
+            return;
+        }
+    });
+
     // 请求access_token
     // var url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + appid + '&secret=' + screct;
     // logger.info(url);
