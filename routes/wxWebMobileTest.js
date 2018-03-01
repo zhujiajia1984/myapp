@@ -9,8 +9,7 @@ var logger = require('../logs/log4js').logger;
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	// logger.info("wxWeb page");
-	res.end("wxWeb page")
-	// res.render('index', { title: 'Express' });
+	res.render('wxWebMobileTest');
 });
 
 module.exports = router;
