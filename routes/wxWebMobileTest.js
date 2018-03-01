@@ -7,7 +7,7 @@ var express = require('express');
 var router = express.Router();
 var logger = require('../logs/log4js').logger;
 var childProc = require('child_process');
-require("babel-core").transform("code");
+var moment = require('moment');
 
 /* page. */
 router.get('/', function(req, res, next) {
@@ -22,9 +22,9 @@ router.get('/getConfigSign', function(req, res, next) {
 	// childProc.exec(cmd, function(err, stdout, stderr) {
 	// 	res.send(stdout);
 	// });
-	var content = "content123"
-	var result = `123${content}`;
-	res.send(result);
+	let timestamp = moment().unix();
+	console.log(timestamp);
+	res.send("success");
 });
 
 module.exports = router;

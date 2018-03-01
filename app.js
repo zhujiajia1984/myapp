@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var log4js = require('log4js');
 var logger = require('./logs/log4js').logger;
 var cors = require('cors');
+require("babel-core").transform("code");
 
 
 // 自定义页面
