@@ -6,11 +6,12 @@ var bodyParser = require('body-parser');
 var log4js = require('log4js');
 var logger = require('./logs/log4js').logger;
 var cors = require('cors');
-require("babel-core").transform("code");
+// require("babel-core").transform("code");
 
 
 // 自定义页面
 var index = require('./routes/index');
+var radar = require('./routes/radar');
 var yunac = require('./routes/yunac');
 var token = require('./routes/token');
 var login = require('./routes/login');
@@ -55,29 +56,31 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 页面跳转
-app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc', '/getwxinfo',
-	'/pwdReset', '/peizhi', '/apType', '/tzManage', '/tzType', '/apUser',
-	'/version', '/versionType', '/profile', '/editPwd', '/logSystem',
-	'/logOperation', '/subClient', '/subRole', '/subAccount', '/account',
-	'/hometongji', '/msgCenter', '/apMonitor', './editWxLogin', '/apConfig',
-	'/ssidEdit', '/devmap'
-], yunac);
-app.use('/token', token);
-app.use('/login', login);
-app.use('/position', position);
-app.use('/wxPublicAccount', wxPublicAccount);
-app.use('/wxWeb', wxWeb);
-app.use('/QRCode', QRCode);
-app.use('/bmap', bmap);
-app.use('/wxPay', wxPay);
-app.use('/weather', weather);
-app.use('/htmlParse', htmlParse);
-app.use('/plantRecognize', plantRecognize);
-app.use('/h5', h5);
-app.use('/location', location);
-app.use('/datav', datav);
-app.use('/captcha', captcha);
-app.use('/wxWebMobileTest', wxWebMobileTest);
+app.use('/', index);
+app.use('/radar', radar);
+// app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc', '/getwxinfo',
+// 	'/pwdReset', '/peizhi', '/apType', '/tzManage', '/tzType', '/apUser',
+// 	'/version', '/versionType', '/profile', '/editPwd', '/logSystem',
+// 	'/logOperation', '/subClient', '/subRole', '/subAccount', '/account',
+// 	'/hometongji', '/msgCenter', '/apMonitor', './editWxLogin', '/apConfig',
+// 	'/ssidEdit', '/devmap'
+// ], yunac);
+// app.use('/token', token);
+// app.use('/login', login);
+// app.use('/position', position);
+// app.use('/wxPublicAccount', wxPublicAccount);
+// app.use('/wxWeb', wxWeb);
+// app.use('/QRCode', QRCode);
+// app.use('/bmap', bmap);
+// app.use('/wxPay', wxPay);
+// app.use('/weather', weather);
+// app.use('/htmlParse', htmlParse);
+// app.use('/plantRecognize', plantRecognize);
+// app.use('/h5', h5);
+// app.use('/location', location);
+// app.use('/datav', datav);
+// app.use('/captcha', captcha);
+// app.use('/wxWebMobileTest', wxWebMobileTest);
 
 
 // catch 404 and forward to error handler
