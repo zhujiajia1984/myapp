@@ -59,7 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 页面跳转
 app.use('/', index);
 app.use('/radar', radar);
-app.use('/platform/wxAccount', radar);
+app.use('/platform/wxAccount', wxAccount);
 // app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc', '/getwxinfo',
 // 	'/pwdReset', '/peizhi', '/apType', '/tzManage', '/tzType', '/apUser',
 // 	'/version', '/versionType', '/profile', '/editPwd', '/logSystem',

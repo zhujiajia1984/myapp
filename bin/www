@@ -2,30 +2,17 @@
  * Module dependencies.
  */
 var app = require('../app');
-var debug = require('debug')('myapp:server');
 var http = require('http');
-var https = require('https');
-var fs = require('fs');
-var path = require('path');
 
-
-// https服务器参数设置
-// var options = {
-// 	key: fs.readFileSync(path.resolve("./ssl/214047710730603.key")),
-// 	cert: fs.readFileSync(path.resolve("./ssl/214047710730603.pem"))
-// };
 
 // Create HTTP server.
 // var server_https = https.createServer(options, app);
 var server_http = http.createServer(app);
 
 // Listen on provided port, on all network interfaces.
-// var port_https = '443';
-var port_http = 18000;
-// var hostname = '0.0.0.0'
-// server_https.listen(port_https, hostname);
+var port_http = 3000;
 server_http.listen(port_http);
 
 // 输出启动日志
-console.log('https running on https://weiquaninfo.cn');
+console.log('https running on https://www.weiquaninfo.cn');
 // console.log('http running on http://weiquaninfo:18000');
