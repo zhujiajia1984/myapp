@@ -12,23 +12,24 @@ var cors = require('cors');
 // 自定义页面
 var index = require('./routes/index');
 var radar = require('./routes/radar');
-var yunac = require('./routes/yunac');
-var token = require('./routes/token');
-var login = require('./routes/login');
-var position = require('./routes/position');
-var wxPublicAccount = require('./routes/wxPublicAccount');
-var wxWeb = require('./routes/wxWeb');
-var QRCode = require('./routes/QRCode');
-var bmap = require('./routes/bmap');
-var wxPay = require('./routes/wxPay');
-var weather = require('./routes/weather');
-var htmlParse = require('./routes/htmlParse');
-var plantRecognize = require('./routes/plantRecognize');
-var h5 = require('./routes/h5');
-var location = require('./routes/location');
-var datav = require('./routes/datav');
-var captcha = require('./routes/captcha');
-var wxWebMobileTest = require('./routes/wxWebMobileTest');
+var wxAccount = require('./routes/platform/wxAccount/wxAccount');
+// var yunac = require('./routes/yunac');
+// var token = require('./routes/token');
+// var login = require('./routes/login');
+// var position = require('./routes/position');
+// var wxPublicAccount = require('./routes/wxPublicAccount');
+// var wxWeb = require('./routes/wxWeb');
+// var QRCode = require('./routes/QRCode');
+// var bmap = require('./routes/bmap');
+// var wxPay = require('./routes/wxPay');
+// var weather = require('./routes/weather');
+// var htmlParse = require('./routes/htmlParse');
+// var plantRecognize = require('./routes/plantRecognize');
+// var h5 = require('./routes/h5');
+// var location = require('./routes/location');
+// var datav = require('./routes/datav');
+// var captcha = require('./routes/captcha');
+// var wxWebMobileTest = require('./routes/wxWebMobileTest');
 
 //
 var app = express();
@@ -58,6 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 页面跳转
 app.use('/', index);
 app.use('/radar', radar);
+app.use('/platform/wxAccount', radar);
 // app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc', '/getwxinfo',
 // 	'/pwdReset', '/peizhi', '/apType', '/tzManage', '/tzType', '/apUser',
 // 	'/version', '/versionType', '/profile', '/editPwd', '/logSystem',
@@ -85,20 +87,20 @@ app.use('/radar', radar);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-	var err = new Error('Not Found');
-	err.status = 404;
-	next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-	// set locals, only providing error in development
-	res.locals.message = err.message;
-	res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-	// render the error page
-	res.status(err.status || 500);
-	res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;
