@@ -27,7 +27,7 @@ var wxAccount = require('./routes/platform/wxAccount/wxAccount');
 // var plantRecognize = require('./routes/plantRecognize');
 // var h5 = require('./routes/h5');
 // var location = require('./routes/location');
-// var datav = require('./routes/datav');
+var datav = require('./routes/datav');
 // var captcha = require('./routes/captcha');
 // var wxWebMobileTest = require('./routes/wxWebMobileTest');
 
@@ -80,7 +80,7 @@ app.use('/platform/wxAccount', wxAccount);
 // app.use('/plantRecognize', plantRecognize);
 // app.use('/h5', h5);
 // app.use('/location', location);
-// app.use('/datav', datav);
+app.use('/datav', datav);
 // app.use('/captcha', captcha);
 // app.use('/wxWebMobileTest', wxWebMobileTest);
 
