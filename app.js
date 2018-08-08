@@ -13,7 +13,7 @@ var cors = require('cors');
 var index = require('./routes/index');
 var radar = require('./routes/radar');
 var wxAccount = require('./routes/platform/wxAccount/wxAccount');
-// var yunac = require('./routes/yunac');
+var yunac = require('./routes/yunac');
 // var token = require('./routes/token');
 // var login = require('./routes/login');
 // var position = require('./routes/position');
@@ -60,13 +60,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/radar', radar);
 app.use('/platform/wxAccount', wxAccount);
-// app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc', '/getwxinfo',
-// 	'/pwdReset', '/peizhi', '/apType', '/tzManage', '/tzType', '/apUser',
-// 	'/version', '/versionType', '/profile', '/editPwd', '/logSystem',
-// 	'/logOperation', '/subClient', '/subRole', '/subAccount', '/account',
-// 	'/hometongji', '/msgCenter', '/apMonitor', './editWxLogin', '/apConfig',
-// 	'/ssidEdit', '/devmap'
-// ], yunac);
+app.use(['/', '/index', '/apManage', '/groupManage', '/apUser', '/testYunAc', '/getwxinfo',
+    '/pwdReset', '/peizhi', '/apType', '/tzManage', '/tzType', '/apUser',
+    '/version', '/versionType', '/profile', '/editPwd', '/logSystem',
+    '/logOperation', '/subClient', '/subRole', '/subAccount', '/account',
+    '/hometongji', '/msgCenter', '/apMonitor', './editWxLogin', '/apConfig',
+    '/ssidEdit', '/devmap'
+], yunac);
 // app.use('/token', token);
 // app.use('/login', login);
 // app.use('/position', position);
